@@ -81,11 +81,6 @@ public class GameListActivity extends AppCompatActivity implements LoaderManager
             Log.d(TAG, "Did not get a genre");
         }
 
-        if (savedInstanceState != null && savedInstanceState.containsKey(GAMES_ARRAY_KEY)) {
-            mGames = (SteamUtils.Game[]) savedInstanceState.getSerializable(GAMES_ARRAY_KEY);
-            mGameListAdapter.updateGameList(mGames, sort);
-        }
-
         getSupportLoaderManager().initLoader(STEAM_LOADER_ID, null, this);
 
     }
@@ -123,14 +118,6 @@ public class GameListActivity extends AppCompatActivity implements LoaderManager
         mLoadingIndicatorPB.setVisibility(View.VISIBLE);
         getSupportLoaderManager().restartLoader(STEAM_LOADER_ID, args, this);
         //new SteamSpySearchTask().execute(url);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (mGames != null) {
-            outState.putSerializable(GAMES_ARRAY_KEY, mGames);
-        }
     }
 
     @NonNull

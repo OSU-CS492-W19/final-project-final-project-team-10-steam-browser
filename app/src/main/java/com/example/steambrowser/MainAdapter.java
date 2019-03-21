@@ -61,10 +61,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.genreViewHolde
         vh.mbanner.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, GameListActivity.class);
-                intent.putExtra(GENRE_EXTRA_KEY, genreValue);
-                intent.putExtra(GENRE_NAME_KEY, genreName);
-                context.startActivity(intent);
+                if("random".equals(genreValue)) {
+                    Intent randomIntent = new Intent(context, Random.class);
+                    context.startActivity(randomIntent);
+                }
+                else {
+                    Intent intent = new Intent(context, GameListActivity.class);
+                    intent.putExtra(GENRE_EXTRA_KEY, genreValue);
+                    intent.putExtra(GENRE_NAME_KEY, genreName);
+                    context.startActivity(intent);
+                }
             }
         });
         vh.bind(genreName,genreValue,genreImgId);

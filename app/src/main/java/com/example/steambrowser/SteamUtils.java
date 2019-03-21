@@ -16,6 +16,10 @@ public class SteamUtils {
     private final static String STEAM_GENRE_BASE_URL = "https://steamspy.com/api.php?request=tag";
     private final static String STEAM_GENRE_QUERY_PARAM = "tag";
 
+    private final static String STEAM_APPID_BASE_URL = "https://steamspy.com/api.php?request=appid";
+    private final static String STEAM_APPID_QUERY_PARAM = "appid";
+
+
     //appid (int), name (String), positive (int), average_forever (int), average_2weeks (int), price (String), discount (String)
     public static class Game {
         public int appid;
@@ -32,6 +36,13 @@ public class SteamUtils {
     public static String buildSteamGenreURL(String genre) {
         return Uri.parse(STEAM_GENRE_BASE_URL).buildUpon()
                 .appendQueryParameter(STEAM_GENRE_QUERY_PARAM, genre)
+                .build()
+                .toString();
+    }
+
+    public static String buildAppURL(int appid) {
+        return Uri.parse(STEAM_APPID_BASE_URL).buildUpon()
+                .appendQueryParameter(STEAM_APPID_BASE_URL, Integer.toString(appid))
                 .build()
                 .toString();
     }

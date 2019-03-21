@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="genres_array">
+        <item>Random Game!</item>
         <item>Action</item>
         <item>Adventure</item>
         <item>Casual</item>
@@ -26,6 +27,7 @@
         <item>VR</item>
     </string-array>
     <string-array name="genres_array_values">
+        <item>random</item>
         <item>action</item>
         <item>adventure</item>
         <item>casual</item>
@@ -51,6 +53,7 @@
         <item>vr</item>
     </string-array>
     <integer-array name="genres_array_ids">
+        <item>@drawable/vr</item>
         <item>@drawable/action</item>
         <item>@drawable/adventure</item>
         <item>@drawable/casual</item>
